@@ -6,10 +6,10 @@ import random
 import pygame
 from pygame.locals import *
 
-from cutscenes import *
-from data import *
-from sprites import *
-from level import *
+from .cutscenes import *
+from .data import *
+from .sprites import *
+from .level import *
 
 def RelRect(actor, camera):
     return Rect(actor.rect.x-camera.rect.x, actor.rect.y-camera.rect.y, actor.rect.w, actor.rect.h)

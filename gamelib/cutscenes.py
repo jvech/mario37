@@ -1,6 +1,6 @@
 import pygame, sys
 from pygame.locals import *
-from data import *
+from .data import *
 
 def cutscene(screen, text):
     font = pygame.font.Font(filepath("fonts/font.ttf"), 16)

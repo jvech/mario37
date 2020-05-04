@@ -1,8 +1,9 @@
 import pygame, os
 from pygame.locals import *
 
-import menu
-import data
+from . import menu, data
+# import menu
+
 
 def main():
     os.environ["SDL_VIDEO_CENTERED"] = "1"

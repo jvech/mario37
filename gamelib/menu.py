@@ -3,10 +3,10 @@
 import pygame, sys
 from pygame.locals import *
 
-from game import *
-from ezmenu import *
-from data import *
-from cutscenes import *
+from .game import *
+from .ezmenu import *
+from .data import *
+from .cutscenes import *
 
 def RunGame(screen):
     Game(screen)

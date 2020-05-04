@@ -3,7 +3,7 @@
 import pygame, random, math
 from pygame.locals import *
 
-from data import *
+from .data import *
 import math
 
 TOP_SIDE    = 0
@@ -885,7 +885,7 @@ class Coin(Collidable):
         self.frame = 0
     def update(self):
         self.frame += 1
-        self.image = self.images[self.frame/6%4]
+        self.image = self.images[self.frame//6%4]
 
 class CoinDie(Collidable):
     def __init__(self, pos):
@@ -897,7 +897,7 @@ class CoinDie(Collidable):
     def update(self):
         self.timer += 1
         if self.timer < 12:
-            self.image = self.images[self.timer/4%3]
+            self.image = self.images[self.timer//4%3]
         else:
             self.kill()
             
@@ -926,7 +926,7 @@ class PlayerDie(Collidable):
         elif self.timer <= 45:
             self.image = self.images[1]
         elif self.timer <= 57:
-            self.image = self.images[self.timer/4%3]
+            self.image = self.images[self.timer//4%3]
         else:
             self.kill()
 
@@ -996,9 +996,9 @@ class Boss(Collidable):
             if self.speed < 0:
                 self.images = self.left_images
             self.frame += 1
-            self.image = self.images[self.frame/8%2]
+            self.image = self.images[self.frame//8%2]
             if self.hit_timer > 0:
-                self.image = self.images[self.frame/4%2 + 1]
+                self.image = self.images[self.frame//4%2 + 1]
         mult = 1
         if self.die_time > 0:
             mult = 0
