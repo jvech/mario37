@@ -3,6 +3,7 @@
 import pygame, random, math
 from pygame.locals import *
 
+from . import KEYBOARD as K
 from .data import *
 import math
 
@@ -155,9 +156,9 @@ class Player(Collidable):
         self.still_timer -= 1
         self.hit_timer -= 1
         dx = 0
-        key = pygame.key.get_pressed()
+        key = K.obtener_evento()
 
-        if key[K_z] and not self.springing:
+        if key[K.SALTO] and not self.springing:
             self.jump_accel = 0.3
         else:
             self.jump_accel = 0.6
@@ -176,10 +177,10 @@ class Player(Collidable):
                 self.shooting = False
         else:
             if self.still_timer <= 0:
-                if key[K_LEFT]:
+                if key[K.IZQUIERDA]:
                     dx = -1
                     self.facing = dx
-                if key[K_RIGHT]:
+                if key[K.DERECHA]:
                     dx = 1
                     self.facing = dx
 
