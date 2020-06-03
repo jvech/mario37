@@ -8,7 +8,7 @@ IZQUIERDA = K_LEFT
 SALTO = K_z
 
 def obtener_evento(new_interface = False):
-    if not new_interfaz:
+    if not new_interface:
         return pygame.key.get_pressed()
     else:
         pass
