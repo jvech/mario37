@@ -198,9 +198,9 @@ class Game(object):
         self.heart1 = load_image("mario1.png")
         self.heart2 = load_image("mario-life2.png")
         self.heroimg = load_image("mario5.png")
-        self.baddie_sound = load_sound("jump2.ogg")
-        self.coin_sound = load_sound("coin.ogg")
-        self.up_sound = load_sound("1up.ogg")
+        #self.baddie_sound = load_sound("jump2.ogg")
+        #self.coin_sound = load_sound("coin.ogg")
+        #self.up_sound = load_sound("1up.ogg")
         self.time = 400
         self.running = 1
         self.booming = True
@@ -215,7 +215,7 @@ class Game(object):
                      ['Note: This is only a test',
                       'version of the game',
                       'So there is only 4 levels.'])
-            stop_music()
+            #stop_music()
         
         self.intro_level()
         self.main_loop()
@@ -224,7 +224,7 @@ class Game(object):
         self.running = 0
         
     def intro_level(self):
-        stop_music()
+        #stop_music()
         self.screen.fill((0, 0, 0))
         self.draw_stats()
         ren = self.font.render("World 1-%d" % self.lvl, 1, (255, 255, 255))
@@ -233,7 +233,7 @@ class Game(object):
         self.screen.blit(ren, (320-ren.get_width()/2, 255))
         pygame.display.flip()
         pygame.time.wait(2500)
-        play_music(self.music)
+        #play_music(self.music)
              
     def next_level(self):
         self.time = 400
@@ -270,10 +270,11 @@ class Game(object):
             self.camera = Camera(self.player, self.level.get_size()[0])
             self.score -= self.score
             self.highscore = self.highscore
-            play_music("maintheme.ogg")
+            #play_music("maintheme.ogg")
             #play_music("maintheme.ogg")
             if self.lvl == 5:
-                play_music("castle.ogg")
+                pass
+                #play_music("castle.ogg")
         
     def show_death(self):
         ren = self.font.render("YOU DIED", 1, (255, 255, 255))
@@ -282,13 +283,13 @@ class Game(object):
         pygame.time.wait(2500)
 
     def show_end(self):
-        play_music("goal.ogg")
+        #play_music("goal.ogg")
         pygame.time.wait(7500)
         pygame.display.flip()
         
     def gameover_screen(self):
-        stop_music()
-        play_music("gameover.ogg")
+        #stop_music()
+        #play_music("gameover.ogg")
         cutscene(self.screen, ["Game Over"])
         self.end()
 
@@ -353,12 +354,12 @@ class Game(object):
                     MushroomGreendie(m.rect.center)
                     self.score += 5000
                     self.lives += 1
-                    self.up_sound.play()
+                    #self.up_sound.play()
                                     
             for c in self.coins:
                 if self.player.rect.colliderect(c.rect):
                     c.kill()
-                    self.coin_sound.play()
+                    #self.coin_sound.play()
                     CoinDie(c.rect.center)
                     self.score += 50
  
@@ -436,7 +437,8 @@ class Game(object):
                     for s in self.shots:
                         s.kill()
                     if not random.randrange(4):
-                        self.boom_sound.play()
+                        #self.boom_sound.play()
+                        pass
                         
             if self.player.rect.right > self.camera.world.w:
                 if not self.bombs and self.lvl < 30:
@@ -461,7 +463,7 @@ class Game(object):
                         self.player.jump_speed = -5
                         self.player.rect.bottom = b.rect.top-1
                         self.score += 100
-                        self.baddie_sound.play()
+                        #self.baddie_sound.play()
                         BaddieBoom(b.rect.center, b.speed, b.type)
                     else:
                         if b.alive():

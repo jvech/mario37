@@ -2,7 +2,9 @@
 
 import pygame, sys
 from pygame.locals import *
+import os
 
+print(f"\n\npwd: {os.getcwd()}\n\n")
 from .game import *
 from .ezmenu import *
 from .data import *
@@ -10,11 +12,11 @@ from .cutscenes import *
 
 def RunGame(screen):
     Game(screen)
-    play_music("title.ogg", 0.75)
-    
+    #play_music("data/title.ogg", 0.75)
+    print("Hola")
 def ContinueGame(screen):
     Game(screen, True)
-    play_music("title.ogg", 0.75)
+    #play_music("title.ogg", 0.75)
                
 def Help(screen):
     cutscene(screen, ["HELP",
@@ -37,7 +39,7 @@ class Menu(object):
         self.bg = load_image("menu.png")
         self.font = pygame.font.Font(filepath("fonts/font.ttf"), 16)
         self.font2 = pygame.font.Font(filepath("fonts/super-mario-64.ttf"), 45)
-        play_music("title.ogg", 0.75)
+        #play_music("data/title.ogg", 0.75)
         self.clock = pygame.time.Clock()
         events = pygame.event.get()
         self.menu.update(events)

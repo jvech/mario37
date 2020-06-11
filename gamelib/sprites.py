@@ -99,9 +99,9 @@ class Player(Collidable):
         self.still_timer = 0
         self.hp = 1
         self.hit_timer = 0
-        self.jump_sound = load_sound("jump.ogg")
-        self.hit_sound = load_sound("stomp.ogg")
-        self.spring_sound = load_sound("jump2.ogg")
+        #self.jump_sound = load_sound("jump.ogg")
+        #self.hit_sound = load_sound("stomp.ogg")
+        #self.spring_sound = load_sound("jump2.ogg")
         self.springing = False
 
     def kill(self):
@@ -125,7 +125,7 @@ class Player(Collidable):
                 sprite.spring_time = 5
                 self.jumping = True
                 self.springing = True
-                self.spring_sound.play()
+                #self.spring_sound.play()
             
     def hit(self):
         if self.hit_timer <= 0:
@@ -134,13 +134,14 @@ class Player(Collidable):
             if self.hp <= 0:
                 self.kill()
             else:
-                self.hit_sound.play()
+                pass
+                #self.hit_sound.play()
             
     def jump(self):
         if not self.jumping and not self.shooting and self.still_timer <= 0:
             self.jump_speed = -9.4
             self.jumping = True
-            self.jump_sound.play()
+            #self.jump_sound.play()
             self.move(0, -4)
             
     def shoot(self):
@@ -541,8 +542,8 @@ class Stringer(Collidable):
         if dir < 0:
             self.image = pygame.transform.flip(self.image, 1, 0)
         self.life = 5*id
-        self.shoot_sound = load_sound("fireball.ogg")
-        self.shoot_sound.play()
+        #self.shoot_sound = load_sound("fireball.ogg")
+        #self.shoot_sound.play()
     def update(self):
         self.rect.center = self.player.rect.center
         self.move((28-self.id*12)*self.dir, 0)
@@ -913,8 +914,8 @@ class PlayerDie(Collidable):
         self.rect = self.image.get_rect(center = pos)
         self.facing = facing
         self.timer = 0
-        self.sound1 = load_sound("death.ogg")
-        self.sound1.play()
+        #self.sound1 = load_sound("death.ogg")
+        #self.sound1.play()
    
     def update(self):
         if self.facing > 0:
