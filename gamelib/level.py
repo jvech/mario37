@@ -87,8 +87,8 @@ class Level:
                     Hill((self.x*32, self.y*29))
                 if color == (0, 0, 255, 255):
                     Baddie((self.x*32 + 2, self.y*32 + 4), "monster")
-                if color == (0, 255, 255, 255):
-                    Baddie((self.x*32 + 1, self.y*32 + 2), "slub")
+                # if color == (0, 255, 255, 255):
+                #     Baddie((self.x*32 + 1, self.y*32 + 2), "slub")
                 if color == (255, 0, 255, 255):
                     Baddie((self.x*32 - 1, self.y*32 - 12), "squidge")
                 if color == (76, 255, 0, 255):

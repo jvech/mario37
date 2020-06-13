@@ -13,7 +13,6 @@ from .cutscenes import *
 def RunGame(screen):
     Game(screen)
     #play_music("data/title.ogg", 0.75)
-    print("Hola")
 def ContinueGame(screen):
     Game(screen, True)
     #play_music("title.ogg", 0.75)

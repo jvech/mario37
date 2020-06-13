@@ -5,16 +5,16 @@ import numpy as np
 import sklearn as sk
 import data
 
-
-model = joblib.load("./gamelib/RandomForest.pkl")
-Xdata = np.loadtxt("./gamelib/Xdata.csv", delimiter=",")
+model_dir = "./models/"
+model = joblib.load(model_dir+"RandomForest.pkl")
+Xdata = np.loadtxt(model_dir+"Xdata.csv", delimiter=",")
 
 DERECHA = K_RIGHT
 IZQUIERDA = K_LEFT
 SALTO = K_z
 
 
-global cuenta       # Cuenta de entradas
+
 cuenta = [0]        # Lo voli una lista para que la variable no se
                     # vuelva a resetear al usarla en la función
 
@@ -33,8 +33,8 @@ def obtener_evento(new_interface = True, model=model, data=Xdata,\
             if predict == 2:
                 KEY[IZQUIERDA] = 1                                               # Aqui se configura la nueva intefaz
                 cuenta[0] += 1 
-        if cuenta[0] == len(Xdata) - 1:
-            cuenta[0] == 0
+        if cuenta[0] > len(Xdata) - 1:
+            cuenta[0] = 0
         return KEY
                                                             # Ejemplo:
                                                             # if (actividad):
