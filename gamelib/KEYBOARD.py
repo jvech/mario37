@@ -1,13 +1,17 @@
 from pygame.locals import *
+
+import os
 import pygame
 import joblib
 import numpy as np
 import sklearn as sk
 import data
 
-model_dir = "./models/"
-model = joblib.load(model_dir+"RandomForest.pkl")
-Xdata = np.loadtxt(model_dir+"Xdata.csv", delimiter=",")
+
+model_dir = os.path.join("models", "RandomForest.pkl")
+data_dir = os.path.join("models", "Xdata.csv")
+model = joblib.load(model_dir)
+Xdata = np.loadtxt(data_dir , delimiter=",")
 
 DERECHA = K_RIGHT
 IZQUIERDA = K_LEFT
