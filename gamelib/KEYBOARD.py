@@ -8,8 +8,8 @@ import sklearn as sk
 import data
 
 
-model_dir = os.path.join("models", "RandomForest.pkl")
-data_dir = os.path.join("models", "Xdata.csv")
+model_dir = os.path.join("models", "mimodelo.pkl")
+data_dir = os.path.join("models", "misdatos.csv")
 model = joblib.load(model_dir)
 Xdata = np.loadtxt(data_dir , delimiter=",")
 
@@ -33,10 +33,12 @@ def obtener_evento(new_interface = True, model=model, data=Xdata,\
             predict = model.predict(Xdata[cuenta[0]].reshape(1,-1))
             if predict == 1: 
                 KEY[DERECHA] = 1
-                cuenta[0] += 1
             if predict == 2:
                 KEY[IZQUIERDA] = 1                                               # Aqui se configura la nueva intefaz
-                cuenta[0] += 1 
+            if predict == 3:
+                KEY[SALTO] = 1
+            print(f"predict: {predict} \t cuenta: {cuenta[0]}")
+            cuenta[0] += 1 
         if cuenta[0] > len(Xdata) - 1:
             cuenta[0] = 0
         return KEY
