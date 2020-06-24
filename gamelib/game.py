@@ -492,7 +492,8 @@ class Game(object):
                 if e.type == KEYDOWN:
                     if e.key == K_ESCAPE:
                         self.end()
-                    if e.key == K.SALTO and K.obtener_evento()[K.SALTO]:
+                    # if e.key == K.SALTO and K.obtener_evento()[K.SALTO]:
+                    if K.obtener_evento()[K.SALTO]:
                         self.player.jump()     
             if not self.running:
                 return
