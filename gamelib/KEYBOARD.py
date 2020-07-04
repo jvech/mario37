@@ -8,8 +8,8 @@ import sklearn as sk
 import data
 
 
-model_dir = os.path.join("models", "mimodelo.pkl")
-data_dir = os.path.join("models", "misdatos.csv")
+model_dir = os.path.join("models", "RandomForest.pkl")
+data_dir = os.path.join("models", "Xdata.csv")
 model = joblib.load(model_dir)
 Xdata = np.loadtxt(data_dir , delimiter=",")
 
